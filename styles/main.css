@@ -1,8 +1,22 @@
+/* Import Fonts */
+@font-face {
+  font-family: "Dosis";
+  src: url(../fonts/dosis.ttf);
+}
+
 .hero.is-info {
   background-color: #ffcc00;
   color: #fff;
+  font-family: "Dosis";
 }
 
 .hero.is-info .title {
   color: #f10f11;
+  text-transform: uppercase;
+  font-weight: normal;
+}
+
+.hero.is-info .subtitle {
+  color: #fff;
+  text-transform: uppercase;
 }
