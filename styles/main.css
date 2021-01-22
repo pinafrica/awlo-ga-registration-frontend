@@ -4,6 +4,27 @@
   src: url(../fonts/dosis.ttf);
 }
 
+@media only screen and (max-width: 1024px) {
+  .form-body {
+    width: 80% !important;
+    top: -10px !important;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .form-body {
+    width: 80% !important;
+    top: -10px !important;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .form-body {
+    width: 94% !important;
+    top: -25px !important;
+  }
+}
+
 .hero.is-info {
   background-color: #ffcc00;
   color: #fff;
@@ -19,4 +40,19 @@
 .hero.is-info .subtitle {
   color: #fff;
   text-transform: uppercase;
+}
+
+.form-body {
+  top: -100px;
+  width: 60%;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.158);
+}
+
+.profilepic {
+  display: block;
+  margin: 0 auto;
+  position: relative;
+  top: -110px;
 }
