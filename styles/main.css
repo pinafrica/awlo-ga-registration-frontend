@@ -1,0 +1,8 @@
+.hero.is-info {
+  background-color: #ffcc00;
+  color: #fff;
+}
+
+.hero.is-info .title {
+  color: #f10f11;
+}
