@@ -51,6 +51,8 @@
 }
 
 .profilepic {
+  width: 200px !important;
+  height: 200px !important;
   display: block;
   margin: 0 auto;
   position: relative;
@@ -60,10 +62,10 @@
   font-size: 2rem;
   float: right;
   margin-top: -0.6rem;
-  color: #facc4885;
   position: absolute;
   right: -3px;
   bottom: -5px;
+  cursor: pointer;
 }
 
 #file-upload {
@@ -72,6 +74,9 @@
 
 button {
   background-color: #f10f11 !important;
+}
+button.cropBtn{
+  cursor: pointer;
 }
 
 .modal-card-body {
