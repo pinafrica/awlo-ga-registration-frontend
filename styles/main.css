@@ -69,3 +69,7 @@
 #file-upload {
   display: none;
 }
+
+button {
+  background-color: #f10f11 !important;
+}
