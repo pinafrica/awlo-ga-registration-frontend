@@ -56,12 +56,16 @@
   position: relative;
   top: -110px;
 }
-.fa-camera{
+.fa-camera {
   font-size: 2rem;
   float: right;
-  margin-top: -.6rem;
+  margin-top: -0.6rem;
   color: #facc4885;
+  position: absolute;
+  right: -3px;
+  bottom: -5px;
 }
+
 #file-upload {
   display: none;
 }
