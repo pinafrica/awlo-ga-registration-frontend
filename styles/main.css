@@ -73,3 +73,7 @@
 button {
   background-color: #f10f11 !important;
 }
+
+.modal-card-body {
+  height: 700px;
+}

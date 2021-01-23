@@ -7,6 +7,7 @@
     <title>AWLO Gender Ambassadors Program Application</title>
     <link rel="stylesheet" href="styles/bulma.min.css">
     <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/croppie.css">
 
 </head>
 
@@ -26,7 +27,6 @@
                     Application
                 </h2>
             </div>
-        </div>
     </section>
     <section class="form-section">
         <div class="container form-body px-6 py-6">
@@ -39,14 +39,19 @@
                 </figure>
                 <div class="modal">
                     <div class="modal-background"></div>
-                    <div class="modal-content">
-                        <p class="image is-4by3">
-                            <img src="https://bulma.io/images/placeholders/1280x960.png" alt="">
-                        </p>
-                        <p class="has-text-centered mt-5"><button class="button is-success is-uppercase">Crop
-                                Picture</button></p>
+                    <div class="modal-card">
+                        <header class="modal-card-head">
+                            <p class="modal-card-title">Crop your Profile Picture</p>
+                            <button class="delete" aria-label="close"></button>
+                        </header>
+                        <section class="modal-card-body">
+                            <div class="croppies"></div>
+                        </section>
+                        <footer class="modal-card-foot">
+                            <p style="text-align: center; width: 300px; margin: 0 auto;"><button
+                                    class="button is-success">Save changes</button></p>
+                        </footer>
                     </div>
-                    <button class="modal-close is-large" aria-label="close"></button>
                 </div>
                 <div class="columns">
                     <div class="column">
@@ -162,10 +167,10 @@
         </div>
     </section>
 </body>
-<script src="./js/main.js"></script>
 <script src="https://use.fontawesome.com/releases/v5.14.0/js/all.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/croppie/2.6.5/croppie.min.js"
     integrity="sha512-Gs+PsXsGkmr+15rqObPJbenQ2wB3qYvTHuJO6YJzPe/dTLvhy0fmae2BcnaozxDo5iaF8emzmCZWbQ1XXiX2Ig=="
     crossorigin="anonymous"></script>
+<script src="./js/main.js"></script>
 
 </html>
