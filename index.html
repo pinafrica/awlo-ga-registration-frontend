@@ -7,148 +7,150 @@
     <title>AWLO Gender Ambassadors Program Application</title>
     <link rel="stylesheet" href="styles/bulma.min.css">
     <link rel="stylesheet" href="styles/main.css">
-    <script defer src="https://use.fontawesome.com/releases/v5.14.0/js/all.js"></script>
 
 </head>
 
-<body>
-
-</body>
-<!-- Hero section begins here  -->
-<section class="hero is-info is-large">
-    <div class="hero-body">
-        <!-- Container begins here  -->
-        <div class="container">
-            <figure class="image is-128x128">
-                <img class="is-rounded" src="https://awlo.org/wp-content/uploads/2019/01/awlox120.png">
-            </figure>
-            <h1 class="title mt-5">
-                Gender Ambassadors Program
-            </h1>
-            <h2 class="subtitle">
-                Application
-            </h2>
+<body onload="profileImageUpload()">
+    <!-- Hero section begins here  -->
+    <section class="hero is-info is-large">
+        <div class="hero-body">
+            <!-- Container begins here  -->
+            <div class="container">
+                <figure class="image is-128x128">
+                    <img class="is-rounded" src="https://awlo.org/wp-content/uploads/2019/01/awlox120.png">
+                </figure>
+                <h1 class="title mt-5">
+                    Gender Ambassadors Program
+                </h1>
+                <h2 class="subtitle">
+                    Application
+                </h2>
+            </div>
         </div>
-    </div>
-</section>
-<section class="form-section">
-    <div class="container form-body px-6 py-6">
-        <form action="">
-            <figure class="image is-128x128 profilepic">
-                <img class="is-rounded"
-                    src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBxAPEhUQEhIVFRUWFRUVFRcWDxUVFxUXFRUWFhUVFRcYHSggGholGxUVITEhJSkrLi4uFx8zODMtNygtLisBCgoKDg0OGxAQGislHx8tLS0vLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0rLS0tLf/AABEIAOEA4QMBIgACEQEDEQH/xAAbAAABBQEBAAAAAAAAAAAAAAACAAEDBQYEB//EADoQAAIBAgQFAQUHBAIBBQAAAAABAgMRBAUhMQYSQVFhcRMigZGhMkJSscHR8AcUM+GC8ZIVNFNicv/EABkBAAMBAQEAAAAAAAAAAAAAAAABAgMEBf/EACMRAQEBAAICAgMAAwEAAAAAAAABAgMRITESQQQyURRCYRP/2gAMAwEAAhEDEQA/AEhxkEc7oOh0JDoAcJDWCGCQ4hAD3HuCOgIVwkwbfAhqYyMXbRsXZ9OsdMqq2cxhq7f+RBDiOk/vL0Wodhe3CuU1TObK9vo/yI48TUlbnavf7sr/ADT1QyX1xcxyYbMKVX7E03a9r66+DouMJFINSIEwkwCdSJEyCLJIsAlQaI4kiAHQQyCAjodDJBJACGCEAZJBISHRKiQSEh0AOOMOMHEJIdoAaxLDQilFdd+xUZtn8KMWvtT20ei+P7EW9+IfXTsxeIs9Wl5bsVeImpfZfxW/w6mUq5tVqt2ajfza1+rb3O2jhW0nUqSfiF4+u6uP49ey+XbpxWFhq6jfpzNv4IpsTyR2i0r9W0wcXiFTdoJK27+0/W99ypxGM5ndpv1l+ZeZU2xdUs1mopXvFd43+oc8bRerTv8ABJedNWyneLdRJe7G3jp4W7fk5ais90yvim6aCjmqjLminfZeFsi9wHEU1Zyd127dtTBQq2OynimO5KaetYLM4VVdPXt2O9HleHxTcbLTXe5tOG80VRcjbbVlq9b21t4I6X20SJIsFIJAaWJKiGJLEAkQaAQaAjjoSHQAhDiAMmEhgkSo44wSGCCihhqsmotrcAN6HPjcyp0I7qUnsvPb/ZTZhnsYrlle/byu5kcdmE5S5r+gfG0W9NTjs3kk39uT1spJJdl5+CMnmEqlR+9q3pZLRenVhZdhK1dvkvd3vK2tvjsafLOEakt1ZdfPqTrecKzx65GMo0nTfNJtNPSy5mvPqPiMzqWtFaa/ek36tnqmH4Ohs4pklXg+mlpFfFGX+TP42/xb/XidSc5bK3wsRqL6q/qev1+FKf4EVWM4Whqkl6W/Jlz8nLPX4mv68+oyt0j8/wBhV1pq4fDcvMdkrpt2T+FrnA8G5aOem17Wt6o2mpfMYXFniqi5PSdyLEYeUJODeqbT/cenLS5ozWEaj0/XQt8uxjpSU4tXTT7fUzsW2d2GrySS6eUhWHHq/DuZrEQ2tJblyonnXCebKjOz+y9NO56LRkpK62IsaQSJIAWDiI0kQ0BEkQEJDjIIAQhxAGTQQyCsSogkMEhggkCJgFNnmBp1U9PeVlorNvtfsUeVcPSq1o07bO7Nbjaapx5utu3Vu8vojv4EpKrUlUfw+JlrdkaYxLVzk/DsKUUuX6FxSwEYltGkgKkLGN4/t0Tl+o4fYpEVRLfwdVQjlDQzsayqbFQS6FNi4/yxf4yBVV6fgyvtqzeOwKkrtGYzHAKL21esXbrvZ+GbjFK3T1M5mqaTe972Ojj1Y5+XEsefZmnOfN12328X6o44prydONpuMrr0/c4pS1Z6GfTzNTykp6O5MpXZDS1JCkrDC1Wmj1jhfFqpRja+mju7vQ8hoyPRv6f1rxcb+bE6XlsbBJC5QkiFiQaBSDQEJDjIJACEOOAZNBIZBISiCQkOgBAthoFxfQBHLxBK9J26K69S9/prh2qCl31Mvn+IVOOu32X4b2+qNxkONp4LCUm0nJwTS+F22c+p303xeu62lOnoc9ZpGBz3+qXsFpTj6OWwOTcd08ctFyzW8W/qu6K3ZJ4Tx57vmtjXqJEcsSkrFRPGcyKzF5n7OMmzm+TsmZ0s8bjYrdrTczeY8UUKV9bu7t+xjOJ+J5pWhKzaexiViq1R739dTbj4O53WHLz2XrL0PMePILSNO787HHR4vw9eLhUjyfp6d0ZfAZck7zLSthKE1ayT7o0ueOeGc1y3z2fH5fGTvFqUXrFrqUFfL5Qb0L/LMJKk3G/NB/TyWc8Ou1y5r4oufkwFnF2/Umg/yLbiLL+RqpHZ6PwynRtL3HPqdXp00Hsbf+n9Z+1a6PW3kw1Jmw4Cs66T7aNfkFGfb1JIew6iFYhoFBIVhwAkEgUEgI4hxAGUQSGQSQlHsOkOhACEtwkhmgDO8YU24K3WS+eyLurltbERUpy5KcYpR7ySSSt2Wn1Kvi1P+3uujv8AJ3NfQvVpYdLadKm/nFHNyW59OjhzNe3kme8NyU24ylLwo3372OfJ+fD1E5c0Wn1TXwZ6DxLxZg8G5UKcPbVI6O0uWlB9G317d7o80zHiKpWn9imkmleO3wbRWZyanV9HbxYv/XtnDi9uk73ul1KnjbDTpwlbZaj/ANIMVKuv8coqOjv9mT7wfbuXXHMFKEov0MLm59/10ZvyvU/jwHEVfaT1foarJssoUoqpXlCCutZ+e0SheXzp1FJcqd2k5apPo34NBkuVxi5TruFebWj9o043/CmrL/R1ass9uXMst8eUmbZvl8fcUpXS/wDj5V9UULxFJ+9Ca8p6B4rhylHmnOrJu/V/ruyvpZcpSUYXk79NhzOJ6qbrkvuNBg6q0aknfs7lzRtI5svymNKKU4pM61BRehn8o0+N67quz7C3pSXo/qYhRtp5PRMZacJLumYDEwd2vJvx1zcs8mgbL+nrXt7NdN7bPyY2KlflsehcA4D2dVTclrGzj18MvVZ5lr0ZIewaiNJErAJDiAHQaBQSAjiEIAyyDQKQSEoSHQyDQAhmEMwDizKkp05Ravoy8wOEqVsBQjTlyt0ow5rJuKWj0fgrJK+hs+F6LWGpQt939dzHlz214tddvMMx4ZoUYypubabvPns3L423K3LcjpTqcmHoKWusuV8kfLb3fhHteJ4Yo1HzThFvyiangKNBXtFJeEjOzk+/Tab4vqd1y8H5X7CGurtq9Php0M1xfK7kvJvac7U3K1ro8v4wrXk9eock6zmK4NW61pj8VCN9bF1k+XU60UpWa+vpcqo5P/cae05EvFyfIK08LV9lOXMr+6+6uLU8eKrN8+WjpcC4Wbu4X/5FzhuFaFJe7FL0R3ZZioyR1YrEpJmf15rTrz4Y/NMtgntsUWLw6jqjS5rjF3+pl8bXuy8RnydOOWl/QytKhzYiMe818rmyhDmjsUzyepDExna8LuSa6abM6sVxbnfSLG4SNHmrNczbXKuibIKeJqwaxULqSlaXbXb4BcS13aKT++0/Fo7fW4soxDqe5JXTVn+gfXa49gyjGKvRp1fxRTfrbX6nTJmf4Hq3w/L+GTRfsqeYz1OqEQhDSJBoBBoCOMOIAy6CQkOIzoKwyCQGdIaQSBkABI9E4WjbDU3/APX9TzuRtcJjvZ4eml0px/IWtTPmnM3fiLbMcxjTW5kMPnqxWIjBawi/e82/6MjxzxQ43jFnb/TzDuFP2k3rLV+L7HJvet3t3cfHnjnX202O4xoVp1MNSqL2tNNuFmnZb2727HmHEuatylKbtGP17epvs5zCEXKryptafZ108o814oxVPF3dN8uuqtp6l5z3rus9bmcdZ8KBcRyi/di7d3Kz+SO3LM69pXptppLfy2Uyy9rVrqWOAgotPlOjWc9eHPjeu/L0WlmdSGtNNrqu51U+II1Va9pdYtWaflGRhnDitLfscjxvtZKd0pLZrfTXXujn/wDJ03mi9zHGtuxyr3kQYm8oQq9JK79ep0UVZFYiOTXbrw60sdFTSLfZP6ENHYHNa/sqNSf4YSf0NGTD5jW5pRpf82+rlK/5LQssrhaSS3/Y5cqo+0lDX3vT5+nqXscNVxNXlilGN+V2Vm/V9tB6PNbPgei44ZN/ek5F+yHBYdUqcKa+7FIlZcZW90whCQEJBoBBoCEIQgDMIIZBWEZ0EhkEgBxmh0JoDRtFmq96Fvwpx+WxwWJ8MrxnHxcz5p3lrw3rTyjNoyrYrkfe/wAj0Thmo7KEX/8ArbTv8PJVZhkicnVjo9bu13ZlBQjj05U6Ml7ysr7rxcxlmpOvptruav8A16Bi5YON4ylzvZqL+epQ4nE5VRTSw127XvO606syOUYDG0cSniKNarHVSUVzvxZG7rZbhK0XJ4KtCTimr09b9YtKVrlWfH7VnvX+rI5pnVCb9ylGK6JFPVzKN9ktNjTTyipyyjSwVTmu+WVTlhHw92/oZ7MOGKsda9WPN+GC7762Rpn4/aN8e/4q8XmlOzSvfwhsn5py00RPRyWCl+J9rl1h8FGnql9lX2/MvW5J1HPMat7q2xaUKFKn1tf56sGnPRL+bldisS5yXhEsKljPM8L3fK1pTOrE0VUg1LWLVnpumVdCpdot5/4m/T8yiihyjLHTr/28Jx52k9n9h7S02PRssyqlhlaK1u221rqZvhvCqWNlVfTDQS+Mnf8AJGxky5EW+yuMNcVyknEhkOAGg0BENCIQhCAM0hxJDiM6CGQSAEOJIdIDNYko1OR36bNd090DYewCVFVaV+qexFkWGTrpyjb01v8AsT1ad1b4oDAVOWal1T+ng49Y+N6dmd/LPbb03TppTcVp1sirzLi+hB8rqw+MWmWM6fNBWV01+aPPuI+EZ1pScKc231irFzVng/jL59oeJOO6ck4xq9PuR/UwWKzrnbst++7O2pwDjISbnFWX4qi/Q6KXC8r+9ZempXeJ9l3yanXXTiyxOTvY7selGJc4bKo0ld/DYzmcYi7snfrYM35VG58Yjpx6hwdxS2Xog8PTZqw9uvB7/kXOLnalbq7fQqqDURYvG82nYSmr4VV+aVvuRXycv3NC2Zzg6peMl6GhZc9I17JjXGbBuUlIOgEGmASIkRHEkQiOIcQBm0OJDiM6CGQSAEgrCQ9hgwgrCAGRFKFn67PsTIe19GRvHyi8a+K/yXM4+z5ZO7irPbp/0SY7NoRhdfRr9TH4+nUoL20NY/f0u422k11jbf4GWzTiPnjpLfonpt/ox6vptNSeWoxedUpyab8dvnYqswzWlB+6772szAVs2euj/wBnFiMZUn/PoOcIvO0WccROatG99lt9ShoVnOSvrqQYfCSqPf6fQ0GCyxQ1lpbp/PJtJnMYW63XXShe1+iX5bD1qttENUq20WiKrHYrluT7X6dFbFtdSGFdt2KeeJbJ8HUu9PiV0nt6XwVW99x7xfzTNe0efcJVuSpB+bfoehyHktIpIFIkYJSSQSBCQBJFkiZCmSJiJJcYa4gCgQ4kOIzoJDIJACQSGQQwcYJCABsEkMEmBu3AxTjKL/nQxvEHCGHlJzUOXW75NL+q2Nnlj95rwFjaXfY5OW3O+46+PM3jqvKZ8J0Ya885Lpdr80iD/wBJoQ+7f1bdz0WplsZXS2Zks6ympTbt0Hnlt+y1xSfSmc4w0ikvRWOatjfJXY+pUi7MrvavqzaZ7Y3XS8liNLlJjsRdnR7b3bL5lZNammYz1Si2ywwO5wQV2WWFSQ9FlrMlnZpnpmFrqpBSXXf17HlOWVdbm1yHMlCfs5P3Z7eJf7M5fLTU8NKwGGwblsyEM2NcANMNMhTCTGE1xyLmGESqQ4kEIyQQyCGCQSEhwB0JjjMAFjDsC4G7cul769GWNaNyowUvfiWcp2OT8j9nZ+P+qKNON+xxZvRjI6q1ZFdia3Mrav11MJW9jCZ7lerdjI47BcrPTcyoc6ujFZtQtI6OPbn5cS+VEqdkc1SnqWVWyOR076s6JXNcoYLsdNIHkJYRC0SLTATsXE6uifYz9CdjulX0Iq2ryzil07Rq+9Hv95fujR4DNqNf7Er/AAPK8PCpXmoQTbb/AJfwb7KMDHC0+W+u85d3+xUtRqRomwWyupYie/0OiniL7qxXyienRzBKRFzCUhkm5hEVxwDlQ4kEhAkOhIdDB0EJDgCGY4LYAMmRNhyYMKcptRim29EkAHhH78fUsasi1pZZ/b0PeivaT+09HZb8qKPGI5PyP2dn436oMRN7FXUrWkdFaoVVao07nO6E2PxNlqrmNzWum3oa2q1UjsUeNwUXc1xeme4yFS7FCmW2JwyRF/au17G/yc/xV0kFCJKsPKTsk32039DRZXwhialpTj7OP4p2XyW7H2XTORi1qW2W5JiMTZ25Kd9Zyul8Fuza4HhyhQs+X2kvxVNILyonY26j9332tL7Qj6dwlTb/ABw5fgKWFhaC33k/tTfjsjrjSlLV6LpH9X5OuhgWnzSd5d+3hdjqWHGlwxphKB3KgNKiMOaMCXVbk0IE3sboB049P4xHV/boQ+y6VyCQwi0jQ6EIAIcQgBgZCEARSLfhP/P/AMWIQQr6ajOP8fxMbjRCOT8n93Z+L+inqFVjd/iOI546Cw+xxYzcQi4WlHitzop/ZEI1+mN9rrgj/wByvR/kbPFf5F6iEXGW/avz7b4ndhPsx9EMIcQ6EPEYRRDiDIQgBok0BCAHEIQw/9k=">
-            </figure>
-            <div class="columns">
-                <div class="column">
-                    <div class="field">
-                        <label class="label">First Name</label>
-                        <div class="control">
-                            <input class="input" type="text" placeholder="First Name">
+    </section>
+    <section class="form-section">
+        <div class="container form-body px-6 py-6">
+            <form action="">
+                <figure class="image is-128x128 profilepic">
+                    <img class="is-rounded"
+                        src="data:image/jpeg;base64,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">
+                        <i class="fas fa-camera" id="camera-icon"></i>
+                        <input id="file-upload" name="profileImage" type="file" accept="image/*" required />
+                    </figure>
+                <div class="columns">
+                    <div class="column">
+                        <div class="field">
+                            <label class="label">First Name</label>
+                            <div class="control">
+                                <input class="input" type="text" placeholder="First Name">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="column">
+                        <div class="field">
+                            <label class="label">Last Name</label>
+                            <div class="control">
+                                <input class="input" type="text" placeholder="Last Name">
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="column">
-                    <div class="field">
-                        <label class="label">Last Name</label>
-                        <div class="control">
-                            <input class="input" type="text" placeholder="Last Name">
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="columns">
-                <div class="column">
-                    <div class="field">
-                        <label class="label">Email</label>
-                        <div class="control has-icons-left has-icons-right">
-                            <input class="input is-danger" type="email" placeholder="something@example.com">
-                            <span class="icon is-small is-left">
-                                <i class="fas fa-envelope"></i>
-                            </span>
-                            <span class="icon is-small is-right">
-                                <i class="fas fa-exclamation-triangle"></i>
-                            </span>
-                        </div>
-                        <p class="help is-danger">This email is invalid</p>
-                    </div>
-                </div>
-                <div class="column">
-                    <div class="field">
-                        <label class="label">Phone Number</label>
-                        <div class="control has-icons-left has-icons-right">
-                            <input class="input is-danger" type="tel" placeholder="">
-                            <span class="icon is-small is-left">
-                                <i class="fas fa-phone"></i>
-                            </span>
-                            <span class="icon is-small is-right">
-                                <i class="fas fa-exclamation-triangle"></i>
-                            </span>
-                        </div>
-                        <p class="help is-danger">This phone number is invalid</p>
-                    </div>
-                </div>
-            </div>
-            <div class="columns">
-                <div class="column">
-                    <div class="field">
-                        <label class="label">Location</label>
-                        <div class="control has-icons-left has-icons-right">
-                            <input class="input is-danger" type="text" placeholder="">
-                            <span class="icon is-small is-left">
-                                <i class="fas fa-map"></i>
-                            </span>
-                            <span class="icon is-small is-right">
-                                <i class="fas fa-exclamation-triangle"></i>
-                            </span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="columns">
-                <div class="column">
-                    <div class="field">
-                        <label class="label">Bio</label>
-                        <div class="control">
-                            <textarea class="textarea" placeholder="Enter your Bio here..."></textarea>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="columns">
-                <div class="column">
-                    <div class="field">
-                        <label class="label">What is your reason for joining?</label>
-                        <div class="control">
-                            <textarea class="textarea" placeholder="Reason for joining..."></textarea>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="columns">
-                <div class="column is-centered attestation">
-                    <div class="field">
-                        <div class="control">
-                            <label class="checkbox">
-                                <input type="checkbox">
-                                <small>After learning for 3 months, I agree to volunteer for another 3 months on communications
-                                projects at African Women in
-                                Leadership Organisation.</small> </label>
-                        </div>
-                    </div>
-                    <div class="field is-grouped-centered">
-                        <div class="control mt-6">
-                            <p style="text-align: center;"><button class="button is-success submit-button px-6">
-                                <span class="icon is-small">
-                                    <i class="fas fa-check"></i>
+                <div class="columns">
+                    <div class="column">
+                        <div class="field">
+                            <label class="label">Email</label>
+                            <div class="control has-icons-left has-icons-right">
+                                <input class="input is-danger" type="email" placeholder="something@example.com">
+                                <span class="icon is-small is-left">
+                                    <i class="fas fa-envelope"></i>
                                 </span>
-                                <span>Submit</span>
-                            </button></p>
+                                <span class="icon is-small is-right">
+                                    <i class="fas fa-exclamation-triangle"></i>
+                                </span>
+                            </div>
+                            <p class="help is-danger">This email is invalid</p>
+                        </div>
+                    </div>
+                    <div class="column">
+                        <div class="field">
+                            <label class="label">Phone Number</label>
+                            <div class="control has-icons-left has-icons-right">
+                                <input class="input is-danger" type="tel" placeholder="">
+                                <span class="icon is-small is-left">
+                                    <i class="fas fa-phone"></i>
+                                </span>
+                                <span class="icon is-small is-right">
+                                    <i class="fas fa-exclamation-triangle"></i>
+                                </span>
+                            </div>
+                            <p class="help is-danger">This phone number is invalid</p>
                         </div>
                     </div>
                 </div>
-            </div>
-        </form>
-    </div>
-</section>
-
+                <div class="columns">
+                    <div class="column">
+                        <div class="field">
+                            <label class="label">Location</label>
+                            <div class="control has-icons-left has-icons-right">
+                                <input class="input is-danger" type="text" placeholder="">
+                                <span class="icon is-small is-left">
+                                    <i class="fas fa-map"></i>
+                                </span>
+                                <span class="icon is-small is-right">
+                                    <i class="fas fa-exclamation-triangle"></i>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="columns">
+                    <div class="column">
+                        <div class="field">
+                            <label class="label">Bio</label>
+                            <div class="control">
+                                <textarea class="textarea" placeholder="Enter your Bio here..."></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="columns">
+                    <div class="column">
+                        <div class="field">
+                            <label class="label">What is your reason for joining?</label>
+                            <div class="control">
+                                <textarea class="textarea" placeholder="Reason for joining..."></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="columns">
+                    <div class="column is-centered attestation">
+                        <div class="field">
+                            <div class="control">
+                                <label class="checkbox">
+                                    <input type="checkbox">
+                                    <small>After learning for 3 months, I agree to volunteer for another 3 months on communications
+                                    projects at African Women in
+                                    Leadership Organisation.</small> </label>
+                            </div>
+                        </div>
+                        <div class="field is-grouped-centered">
+                            <div class="control mt-6">
+                                <p style="text-align: center;"><button class="button is-success submit-button px-6">
+                                    <span class="icon is-small">
+                                        <i class="fas fa-check"></i>
+                                    </span>
+                                    <span>Submit</span>
+                                </button></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </section>
+</body>
+<script src="./js/main.js"></script>
+<script src="https://use.fontawesome.com/releases/v5.14.0/js/all.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/croppie/2.6.5/croppie.min.js" integrity="sha512-Gs+PsXsGkmr+15rqObPJbenQ2wB3qYvTHuJO6YJzPe/dTLvhy0fmae2BcnaozxDo5iaF8emzmCZWbQ1XXiX2Ig==" crossorigin="anonymous"></script>
 </html>
