@@ -38,11 +38,11 @@ const readImageFile = upload => {
   if (upload && upload[0]) {
     const reader = new FileReader()
     reader.addEventListener('load', e => {
-      imageModal.classList.add('is-active')
-
-      vanilla.bind({
-        url: e.target.result
-      })
+        imageModal.classList.add('is-active')
+        imageBlob = e.target.result
+        vanilla.bind({
+            url: imageBlob
+        })
 
       bindProfilePicture(vanilla, imageModal)
     })
@@ -54,15 +54,14 @@ const bindProfilePicture = (vanilla, imageModal) => {
   const profilePicture = document.getElementById('profile-image')
   const profileOkBtn = document.querySelector('.cropBtn')
 
-  profileOkBtn.addEventListener('click', e => {
-    e.preventDefault()
-    vanilla.result('blob').then(blob => {
-      imageBlob = blob
-      const url = URL.createObjectURL(imageBlob)
-      return (profilePicture.src = url)
+    profileOkBtn.addEventListener('click', (e) => {
+        e.preventDefault()
+        vanilla.result('blob').then((blob) => {
+          const url = URL.createObjectURL(blob)
+          return profilePicture.src = url
+        })
+        imageModal.classList.remove('is-active')
     })
-    imageModal.classList.remove('is-active')
-  })
 }
 
 const getFormData = () => {
@@ -81,31 +80,50 @@ const constructFormData = () => {
   const reason = document.querySelector('textarea[name="reason"]').value
 
   let formData = new FormData()
-  formData.append('firstName', firstName)
-  formData.append('lastName', lastName)
-  formData.append('email', email)
-  formData.append('phoneNumber', phoneNumber)
-  formData.append('location', location)
-  formData.append('bio', bio)
-  formData.append('profilePicture', profilePicture)
-  formData.append('reason', reason)
+    formData.set('firstName', firstName)
+    formData.set('lastName', lastName)
+    formData.set('email', email)
+    formData.set('phoneNumber', phoneNumber)
+    formData.set('location', location)
+    formData.set('bio', bio)
+    formData.set('profilePicture', profilePicture)
+    formData.set('reason', reason)
 
-  saveToServer(formData)
+    saveToServer(formData)
 }
 
 const saveToServer = data => {
   const url = 'http://localhost:3000/api/v1/create'
   fetch(url, {
     method: 'POST',
-    headers: {
-      'Content-Type': 'application/json'
+    header:{
+      'Content-Type': 'multipart/form-data',
     },
     body: data
   })
-    .then(response => {
-      console.log(response)
-    })
-    .catch(err => {
-      console.log(err)
-    })
+  .then(response => response.json())
+  .then((data) => {
+    if (data.message === 'Registration Successful') {
+      swal(
+        'Registration Successful!',
+        'Your registration was successful! Check your email for more details.',
+        'success'
+      )
+      setTimeout((window.location = 'http://awlo.org/gender-ambassadors/'), 5000)
+    } else if (data.error) {
+      swal(
+        'Registration Failed',
+        'Something went wrong with your registration',
+        'error'
+      )
+      setTimeout((window.location = 'http://awlo.org/gender-ambassadors/'), 5000)
+    }
+  })
+  .catch((err) => {
+    swal(
+      'Submission Error',
+      'Try again later, can not submit form at this time',
+      'error'
+    )
+  })
 }
