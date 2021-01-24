@@ -93,7 +93,7 @@ const constructFormData = () => {
 }
 
 const saveToServer = data => {
-  const url = 'http://localhost:3000/api/v1/create'
+  const url = 'https://awlo-ga-program.herokuapp.com/api/v1/create'
   fetch(url, {
     method: 'POST',
     header:{
