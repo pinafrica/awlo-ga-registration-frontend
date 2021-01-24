@@ -7,6 +7,12 @@ let vanilla = new Croppie(preview, {
   boundary: { width: 300, height: 300 },
   customClass: 'croppies'
 })
+let imageBlob
+const submitButton = document.querySelector('.submit-button')
+submitButton.addEventListener('click', (e) => {
+    e.preventDefault()
+    getFormData()
+})
 
 const profileImageUpload = () => {
   const uploadButton = document.getElementById('camera-icon')
@@ -44,9 +50,56 @@ const bindProfilePicture = (vanilla, imageModal) => {
     profileOkBtn.addEventListener('click', (e) => {
         e.preventDefault()
         vanilla.result('blob').then((blob) => {
-            const url = URL.createObjectURL(blob)
-            return profilePicture.src = url
+          imageBlob = blob
+          const url = URL.createObjectURL(imageBlob)
+          return profilePicture.src = url
         })
         imageModal.classList.remove('is-active')
     })
+}
+
+
+const getFormData = () => {
+  //validate form HERE
+  constructFormData()
+}
+
+const constructFormData = () => {
+  const firstName = document.querySelector('input[name="firstName"]').value
+  const lastName = document.querySelector('input[name="lastName"]').value
+  const email = document.querySelector('input[name="email"]').value
+  const phoneNumber = document.querySelector('input[name="phoneNumber"]').value
+  const location = document.querySelector('input[name="location"]').value
+  const bio = document.querySelector('textarea[name="bio"]').value
+  const profilePicture = imageBlob
+  const reason = document.querySelector('textarea[name="reason"]').value
+
+  let formData = new FormData()
+    formData.append('firstName', firstName)
+    formData.append('lastName', lastName)
+    formData.append('email', email)
+    formData.append('phoneNumber', phoneNumber)
+    formData.append('location', location)
+    formData.append('bio', bio)
+    formData.append('profilePicture', profilePicture)
+    formData.append('reason', reason)
+
+  saveToServer(formData)
+}
+
+const saveToServer = (data) => {
+  const url = 'http://localhost:3000/api/v1/create'
+  fetch(url, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: data
+  })
+  .then((response) => {
+    console.log(response)
+  })
+  .catch((err) => {
+    console.log(err)
+  })
 }
