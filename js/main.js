@@ -106,7 +106,7 @@ const saveToServer = data => {
     if (data.message === 'Registration Successful') {
       swal(
         'Registration Successful!',
-        'Your registration was successful! Check your email for more details about the program',
+        'Your registration was successful! Check your email for more details.',
         'success'
       )
       setTimeout((window.location = 'http://awlo.org/gender-ambassadors/'), 5000)
