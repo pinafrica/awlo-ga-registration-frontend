@@ -8,6 +8,8 @@
     <link rel="stylesheet" href="styles/bulma.min.css">
     <link rel="stylesheet" href="styles/main.css">
     <link rel="stylesheet" href="styles/croppie.css">
+    <!-- intlTelInput.css -->
+    <link rel="stylesheet" href="./styles/intlTelInput.min.css">
 
 </head>
 
@@ -89,8 +91,8 @@
                         <div class="field">
                             <label class="label">Phone Number</label>
                             <div class="control has-icons-left has-icons-right">
-                                <input class="input" name="phoneNumber" type="tel" placeholder="">
-                                <span class="icon is-small is-left">
+                                <input class="input" id="phoneNumber" name="phoneNumber" type="tel" placeholder="">
+                                <span class="icon is-small is-right">
                                     <i class="fas fa-phone"></i>
                                 </span>
                             </div>
@@ -166,7 +168,13 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/croppie/2.6.5/croppie.min.js"
     integrity="sha512-Gs+PsXsGkmr+15rqObPJbenQ2wB3qYvTHuJO6YJzPe/dTLvhy0fmae2BcnaozxDo5iaF8emzmCZWbQ1XXiX2Ig=="
     crossorigin="anonymous"></script>
-<script defer src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js" integrity="sha512-AA1Bzp5Q0K1KanKKmvN/4d3IRKVlv9PYgwFPvm32nPO6QS8yH1HO7LbgB1pgiOxPtfeg5zEn2ba64MUcqJx6CA==" crossorigin="anonymous"></script>
+<!-- intl script -->
+<script src="./js/intlTelInput.min.js"></script>
+<!-- util script -->
+<script src="./js/utils.js"></script>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"
+    integrity="sha512-AA1Bzp5Q0K1KanKKmvN/4d3IRKVlv9PYgwFPvm32nPO6QS8yH1HO7LbgB1pgiOxPtfeg5zEn2ba64MUcqJx6CA=="
+    crossorigin="anonymous"></script>
 <script defer src="./js/main.js"></script>
 
 </html>
