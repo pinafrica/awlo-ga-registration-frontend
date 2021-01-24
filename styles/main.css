@@ -74,8 +74,6 @@
 
 button {
   background-color: #f10f11 !important;
-}
-button.cropBtn {
   cursor: pointer;
 }
 
