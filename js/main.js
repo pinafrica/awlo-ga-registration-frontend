@@ -1,3 +1,12 @@
+let autocomplete
+let input
+function initializeGooglePlaces () {
+  input = document.querySelector('input#location')
+  autocomplete = new google.maps.places.Autocomplete(input)
+}
+
+document.addEventListener('DOMContentLoaded', initializeGooglePlaces)
+
 window.onload = e => profileImageUpload()
 const uploadFile = document.getElementById('file-upload')
 const preview = document.querySelector('.croppies')
@@ -9,9 +18,9 @@ let vanilla = new Croppie(preview, {
 })
 let imageBlob
 const submitButton = document.querySelector('.submit-button')
-submitButton.addEventListener('click', (e) => {
-    e.preventDefault()
-    getFormData()
+submitButton.addEventListener('click', e => {
+  e.preventDefault()
+  getFormData()
 })
 
 const profileImageUpload = () => {
@@ -25,39 +34,36 @@ const profileImageUpload = () => {
   })
 }
 
-
-const readImageFile = (upload) => {
-
+const readImageFile = upload => {
   if (upload && upload[0]) {
     const reader = new FileReader()
     reader.addEventListener('load', e => {
-        imageModal.classList.add('is-active')
+      imageModal.classList.add('is-active')
 
-        vanilla.bind({
-            url: e.target.result
-        })
+      vanilla.bind({
+        url: e.target.result
+      })
 
-        bindProfilePicture(vanilla, imageModal) 
+      bindProfilePicture(vanilla, imageModal)
     })
     reader.readAsDataURL(upload[0])
   }
 }
 
 const bindProfilePicture = (vanilla, imageModal) => {
-    const profilePicture = document.getElementById('profile-image')
-    const profileOkBtn = document.querySelector('.cropBtn')
+  const profilePicture = document.getElementById('profile-image')
+  const profileOkBtn = document.querySelector('.cropBtn')
 
-    profileOkBtn.addEventListener('click', (e) => {
-        e.preventDefault()
-        vanilla.result('blob').then((blob) => {
-          imageBlob = blob
-          const url = URL.createObjectURL(imageBlob)
-          return profilePicture.src = url
-        })
-        imageModal.classList.remove('is-active')
+  profileOkBtn.addEventListener('click', e => {
+    e.preventDefault()
+    vanilla.result('blob').then(blob => {
+      imageBlob = blob
+      const url = URL.createObjectURL(imageBlob)
+      return (profilePicture.src = url)
     })
+    imageModal.classList.remove('is-active')
+  })
 }
-
 
 const getFormData = () => {
   //validate form HERE
@@ -75,19 +81,19 @@ const constructFormData = () => {
   const reason = document.querySelector('textarea[name="reason"]').value
 
   let formData = new FormData()
-    formData.append('firstName', firstName)
-    formData.append('lastName', lastName)
-    formData.append('email', email)
-    formData.append('phoneNumber', phoneNumber)
-    formData.append('location', location)
-    formData.append('bio', bio)
-    formData.append('profilePicture', profilePicture)
-    formData.append('reason', reason)
+  formData.append('firstName', firstName)
+  formData.append('lastName', lastName)
+  formData.append('email', email)
+  formData.append('phoneNumber', phoneNumber)
+  formData.append('location', location)
+  formData.append('bio', bio)
+  formData.append('profilePicture', profilePicture)
+  formData.append('reason', reason)
 
   saveToServer(formData)
 }
 
-const saveToServer = (data) => {
+const saveToServer = data => {
   const url = 'http://localhost:3000/api/v1/create'
   fetch(url, {
     method: 'POST',
@@ -96,10 +102,10 @@ const saveToServer = (data) => {
     },
     body: data
   })
-  .then((response) => {
-    console.log(response)
-  })
-  .catch((err) => {
-    console.log(err)
-  })
+    .then(response => {
+      console.log(response)
+    })
+    .catch(err => {
+      console.log(err)
+    })
 }
