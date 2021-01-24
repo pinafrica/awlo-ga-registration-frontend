@@ -4,6 +4,16 @@
   src: url(../fonts/dosis.ttf);
 }
 
+.iti__flag {
+  background-image: url("../img/flags.png");
+}
+
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  .iti__flag {
+    background-image: url("../img/flags@2x.png");
+  }
+}
+
 @media only screen and (max-width: 1024px) {
   .form-body {
     width: 80% !important;
@@ -87,4 +97,8 @@ button {
 
   background-image: none !important;
   height: 0px;
+}
+
+.iti {
+  width: 100%;
 }
