@@ -75,10 +75,18 @@
 button {
   background-color: #f10f11 !important;
 }
-button.cropBtn{
+button.cropBtn {
   cursor: pointer;
 }
 
 .modal-card-body {
   height: 700px;
+}
+
+/* GOOGLE PLACES INPUT  */
+.pac-container:after {
+  /* Disclaimer: not needed to show 'powered by Google' if also a Google Map is shown */
+
+  background-image: none !important;
+  height: 0px;
 }

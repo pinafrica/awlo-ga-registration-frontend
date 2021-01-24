@@ -35,7 +35,7 @@
                     <img class="is-rounded" id="profile-image"
                         src="https://cdn1.iconfinder.com/data/icons/avatars-1-5/136/87-512.png">
                     <i class="fas fa-camera" id="camera-icon"></i>
-                    <input id="file-upload" name="profilePicture" type="file" accept="image/*" onclick=""  />
+                    <input id="file-upload" name="profilePicture" type="file" accept="image/*" onclick="" />
                 </figure>
                 <div class="modal">
                     <div class="modal-background"></div>
@@ -58,7 +58,7 @@
                         <div class="field">
                             <label class="label">First Name</label>
                             <div class="control">
-                                <input class="input" name="firstName" type="text" placeholder="First Name" >
+                                <input class="input" name="firstName" type="text" placeholder="First Name">
                             </div>
                         </div>
                     </div>
@@ -66,8 +66,8 @@
                         <div class="field">
                             <label class="label">Last Name</label>
                             <div class="control">
-                                <input class="input" name="lastName" type="text" placeholder="Last Name" >
-                                
+                                <input class="input" name="lastName" type="text" placeholder="Last Name">
+
                             </div>
                         </div>
                     </div>
@@ -77,7 +77,7 @@
                         <div class="field">
                             <label class="label">Email</label>
                             <div class="control has-icons-left has-icons-right">
-                                <input class="input" name="email" type="email" placeholder="something@example.com" >
+                                <input class="input" name="email" type="email" placeholder="something@example.com">
                                 <span class="icon is-small is-left">
                                     <i class="fas fa-envelope"></i>
                                 </span>
@@ -91,7 +91,7 @@
                         <div class="field">
                             <label class="label">Phone Number</label>
                             <div class="control has-icons-left has-icons-right">
-                                <input class="input" name="phoneNumber" type="tel" placeholder="" >
+                                <input class="input" name="phoneNumber" type="tel" placeholder="">
                                 <span class="icon is-small is-left">
                                     <i class="fas fa-phone"></i>
                                 </span>
@@ -107,12 +107,9 @@
                         <div class="field">
                             <label class="label">Location</label>
                             <div class="control has-icons-left has-icons-right">
-                                <input class="input" name="location" type="text" placeholder="">
+                                <input class="input" id="location" name="location" type="text" placeholder="">
                                 <span class="icon is-small is-left">
                                     <i class="fas fa-map"></i>
-                                </span>
-                                <span class="icon is-small is-right">
-                                    <i class="fas fa-exclamation-triangle"></i>
                                 </span>
                             </div>
                         </div>
@@ -167,9 +164,13 @@
         </div>
     </section>
 </body>
+<script defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCRIHLjnLHfx55EFjcd6SU2DrtLor3PfOs&libraries=places">
+    </script>
 <script src="https://use.fontawesome.com/releases/v5.14.0/js/all.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/croppie/2.6.5/croppie.min.js"
     integrity="sha512-Gs+PsXsGkmr+15rqObPJbenQ2wB3qYvTHuJO6YJzPe/dTLvhy0fmae2BcnaozxDo5iaF8emzmCZWbQ1XXiX2Ig=="
     crossorigin="anonymous"></script>
 <script src="./js/main.js"></script>
+
 </html>
