@@ -170,7 +170,7 @@ const constructFormData = () => {
   const firstName = document.querySelector('input[name="firstName"]').value
   const lastName = document.querySelector('input[name="lastName"]').value
   const email = document.querySelector('input[name="email"]').value
-  const phoneNumber = document.querySelector('input[name="full_phone"]').value
+  const phoneNumber = document.querySelector('input[name="phoneNumber"]').value
   const location = document.querySelector('input[name="location"]').value
   const bio = document.querySelector('textarea[name="bio"]').value
   const profilePicture = imageBlob
