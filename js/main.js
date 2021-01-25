@@ -64,9 +64,85 @@ const bindProfilePicture = (vanilla, imageModal) => {
     })
 }
 
+const validateProfilePic = () => {
+  const profilePicture = document.querySelector('input[name="profilePicture"]')
+
+  // remove error text if it exist
+  const errorText = profilePicture.parentNode.querySelector('p')
+  if(errorText){
+    errorText.remove()
+  }
+
+  // create error text
+  const warning = document.createElement('p')
+  warning.classList.add('has-text-danger', 'is-size-7')
+  warning.innerText = 'Select profile picture'
+
+  if(profilePicture.value === ''){
+    profilePicture.parentNode.appendChild(warning)
+    return false
+  }
+  return true
+}
+
+const checkEmptyFields= (fields) => {
+  let isEmpty
+  fields.forEach(field => {
+  // remove error text if it exist
+    const errorText = field.parentNode.querySelector('p')
+    if(errorText){
+      errorText.remove()
+    }
+
+  // create error text
+    const warning = document.createElement('p')
+    warning.classList.add('has-text-danger', 'is-size-7')
+    warning.innerText = 'Invalid Input'
+  
+    if(field.value !== ''){
+      field.classList.remove('is-danger')
+      return isEmpty = true
+    }
+  
+    if(field.value === ''){
+      field.classList.add('is-danger')
+      field.parentNode.appendChild(warning)
+      return isEmpty = false
+    }
+  })
+  return isEmpty === true ? validateProfilePic() : isEmpty
+}
+
+const validateCheckBox = () => {
+  const checkBox = document.querySelector('input[type="checkbox"]')
+
+  // remove error text if it exist
+  const errorText = checkBox.parentNode.querySelector('p')
+    if(errorText){
+      errorText.remove()
+    }
+
+  // create error text
+  const warning = document.createElement('p')
+  warning.classList.add('has-text-danger', 'is-size-7')
+  warning.innerText = 'Agree to our terms to proceed'
+  const isChecked = checkBox.checked
+
+  if(!isChecked){
+    checkBox.parentNode.appendChild(warning)
+  }
+
+  return isChecked
+}
+
 const getFormData = () => {
   //validate form HERE
-  constructFormData()
+  const inputs = document.querySelectorAll('input[type="text"],input[type="email"],input[type="tel"],textarea')
+
+  if (checkEmptyFields(inputs) && validateCheckBox()){
+    constructFormData()
+  }
+
 }
 
 const constructFormData = () => {
