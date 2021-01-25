@@ -66,7 +66,17 @@ const bindProfilePicture = (vanilla, imageModal) => {
 
 const getFormData = () => {
   //validate form HERE
-  constructFormData()
+
+   // Add Button enhancement
+   const spinnerContainer = document.createElement("span")
+   const spinner = document.createElement("i")
+   spinnerContainer.classList.add('icon', 'small')
+   spinner.classList.add('fas', 'fa-spinner', 'fa-pulse')
+   spinnerContainer.appendChild(spinner)
+   submitButton.classList.add('blue')
+   submitButton.appendChild(spinnerContainer)
+
+  // constructFormData()
 }
 
 const constructFormData = () => {
