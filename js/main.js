@@ -17,6 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
     hiddenInput: 'full_phone',
     utilsScript: 'scripts/utils.js'
   })
+  document.querySelector('.copyright').innerText = new Date().getFullYear()
 })
 
 window.onload = e => profileImageUpload()
