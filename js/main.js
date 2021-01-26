@@ -6,11 +6,11 @@ function initializeGooglePlaces () {
   autocomplete = new google.maps.places.Autocomplete(input)
 }
 
-// Initialize Google Autocomplete
-document.addEventListener('DOMContentLoaded', initializeGooglePlaces)
-
 // Initialize International Telephone Input Format, Copyright Year and Listen for form submission
 document.addEventListener('DOMContentLoaded', () => {
+  // Initialize Google Autocomplete
+  initializeGooglePlaces()
+
   // Add intl-tel-input
   window.intlTelInputGlobals.loadUtils('js/utils.js')
   const input = document.querySelector('#phone')
@@ -28,7 +28,8 @@ document.addEventListener('DOMContentLoaded', () => {
   // Start listening for form submission event
   const form = document.querySelector('form')
   form.addEventListener('submit', e => {
-    getFormData(e)
+    e.preventDefault()
+    getFormData()
   })
 })
 
@@ -82,6 +83,20 @@ const bindProfilePicture = (vanilla, imageModal) => {
       return (profilePicture.src = url)
     })
     imageModal.classList.remove('is-active')
+  })
+}
+
+const clearErrorMessageOnchange = fields => {
+  fields.forEach(field => {
+    field.addEventListener('change', () => {
+      const errorText = document.querySelector('.has-text-danger')
+
+      if (field.parentNode.contains(errorText)) {
+        field.classList.remove('is-danger')
+        errorText.remove()
+      }
+
+    })
   })
 }
 
@@ -156,17 +171,18 @@ const validateCheckBox = () => {
   return isChecked
 }
 
-const getFormData = e => {
+const getFormData = () => {
   //validate form HERE
   const inputs = document.querySelectorAll(
     'input[type="text"],input[type="email"],input[type="tel"],textarea'
   )
 
+  //clear error text on input change
+  clearErrorMessageOnchange(inputs)
+
   const submitButton = document.querySelector('.submit-button')
 
   if (checkEmptyFields(inputs) && validateCheckBox()) {
-    e.preventDefault()
-
     //   Change submit form behaviour
     submitButton.classList.add('blue')
     submitButton.innerHTML =
