@@ -1,3 +1,4 @@
+// Set up Google Autocomplete
 let autocomplete
 let input
 function initializeGooglePlaces () {
@@ -5,21 +6,33 @@ function initializeGooglePlaces () {
   autocomplete = new google.maps.places.Autocomplete(input)
 }
 
+// Initialize Google Autocomplete
 document.addEventListener('DOMContentLoaded', initializeGooglePlaces)
+
+// Initialize International Telephone Input Format, Copyright Year and Listen for form submission
 document.addEventListener('DOMContentLoaded', () => {
   // Add intl-tel-input
-  window.intlTelInputGlobals.loadUtils('scripts/utils.js')
-  var input = document.querySelector('#phoneNumber')
+  window.intlTelInputGlobals.loadUtils('js/utils.js')
+  const input = document.querySelector('#phone')
   window.intlTelInput(input, {
     // any initialisation options go here
     initialCountry: 'ng',
     separateDialCode: true,
-    hiddenInput: 'full_phone',
-    utilsScript: 'scripts/utils.js'
+    hiddenInput: 'fullPhone',
+    utilsScript: 'js/utils.js'
   })
+
+  // Add Copyright Year
   document.querySelector('.copyright').innerText = new Date().getFullYear()
+
+  // Start listening for form submission event
+  const form = document.querySelector('form')
+  form.addEventListener('submit', e => {
+    getFormData(e)
+  })
 })
 
+// Initialize Image Croppie
 window.onload = e => profileImageUpload()
 const uploadFile = document.getElementById('file-upload')
 const preview = document.querySelector('.croppies')
@@ -30,11 +43,6 @@ let vanilla = new Croppie(preview, {
   customClass: 'croppies'
 })
 let imageBlob
-const submitButton = document.querySelector('.submit-button')
-submitButton.addEventListener('click', e => {
-  e.preventDefault()
-  getFormData()
-})
 
 const profileImageUpload = () => {
   const uploadButton = document.getElementById('camera-icon')
@@ -82,7 +90,7 @@ const validateProfilePic = () => {
 
   // remove error text if it exist
   const errorText = profilePicture.parentNode.querySelector('p')
-  if(errorText){
+  if (errorText) {
     errorText.remove()
   }
 
@@ -91,36 +99,36 @@ const validateProfilePic = () => {
   warning.classList.add('has-text-danger', 'is-size-7')
   warning.innerText = 'Select profile picture'
 
-  if(profilePicture.value === ''){
+  if (profilePicture.value === '') {
     profilePicture.parentNode.appendChild(warning)
     return false
   }
   return true
 }
 
-const checkEmptyFields= (fields) => {
+const checkEmptyFields = fields => {
   let isEmpty
   fields.forEach(field => {
-  // remove error text if it exist
+    // remove error text if it exist
     const errorText = field.parentNode.querySelector('p')
-    if(errorText){
+    if (errorText) {
       errorText.remove()
     }
 
-  // create error text
+    // create error text
     const warning = document.createElement('p')
     warning.classList.add('has-text-danger', 'is-size-7')
     warning.innerText = 'Invalid Input'
-  
-    if(field.value !== ''){
+
+    if (field.value !== '') {
       field.classList.remove('is-danger')
-      return isEmpty = true
+      return (isEmpty = true)
     }
-  
-    if(field.value === ''){
+
+    if (field.value === '') {
       field.classList.add('is-danger')
       field.parentNode.appendChild(warning)
-      return isEmpty = false
+      return (isEmpty = false)
     }
   })
   return isEmpty === true ? validateProfilePic() : isEmpty
@@ -131,9 +139,9 @@ const validateCheckBox = () => {
 
   // remove error text if it exist
   const errorText = checkBox.parentNode.querySelector('p')
-    if(errorText){
-      errorText.remove()
-    }
+  if (errorText) {
+    errorText.remove()
+  }
 
   // create error text
   const warning = document.createElement('p')
@@ -141,41 +149,43 @@ const validateCheckBox = () => {
   warning.innerText = 'Agree to our terms to proceed'
   const isChecked = checkBox.checked
 
-  if(!isChecked){
+  if (!isChecked) {
     checkBox.parentNode.appendChild(warning)
   }
 
   return isChecked
 }
 
-const getFormData = () => {
+const getFormData = e => {
   //validate form HERE
-  const inputs = document.querySelectorAll('input[type="text"],input[type="email"],input[type="tel"],textarea')
+  const inputs = document.querySelectorAll(
+    'input[type="text"],input[type="email"],input[type="tel"],textarea'
+  )
 
-  if (checkEmptyFields(inputs) && validateCheckBox()){
-    
-    // Add Button enhancement
-    const spinnerContainer = document.createElement("span")
-    const spinner = document.createElement("i")
-    spinnerContainer.classList.add('icon', 'small')
-    spinner.classList.add('fas', 'fa-spinner', 'fa-pulse')
-    spinnerContainer.appendChild(spinner)
+  const submitButton = document.querySelector('.submit-button')
+
+  if (checkEmptyFields(inputs) && validateCheckBox()) {
+    e.preventDefault()
+
+    //   Change submit form behaviour
     submitButton.classList.add('blue')
-    submitButton.appendChild(spinnerContainer)
-    
+    submitButton.innerHTML =
+      'Loading &nbsp; <span class="spinner"><i class="fa fa-spinner fa-spin"></i></span>'
+
+    //   construct formdata
     constructFormData()
   }
 }
 
 const constructFormData = () => {
-  const firstName = document.querySelector('input[name="firstName"]').value
-  const lastName = document.querySelector('input[name="lastName"]').value
-  const email = document.querySelector('input[name="email"]').value
-  const phoneNumber = document.querySelector('input[name="phoneNumber"]').value
-  const location = document.querySelector('input[name="location"]').value
-  const bio = document.querySelector('textarea[name="bio"]').value
+  const firstName = document.querySelector("input[name='firstName']").value
+  const lastName = document.querySelector("input[name='lastName']").value
+  const email = document.querySelector("input[name='email']").value
+  const phoneNumber = document.querySelector("input[name='fullPhone']").value
+  const location = document.querySelector("input[name='location']").value
+  const bio = document.querySelector("textarea[name='bio']").value
   const profilePicture = imageBlob
-  const reason = document.querySelector('textarea[name="reason"]').value
+  const reason = document.querySelector("textarea[name='reason']").value
 
   let formData = new FormData()
   formData.set('firstName', firstName)
@@ -187,6 +197,7 @@ const constructFormData = () => {
   formData.set('profilePicture', profilePicture)
   formData.set('reason', reason)
 
+  // Send the form to the Backend for saving
   saveToServer(formData)
 }
 
