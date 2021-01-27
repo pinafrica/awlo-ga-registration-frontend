@@ -86,20 +86,6 @@ const bindProfilePicture = (vanilla, imageModal) => {
   })
 }
 
-const clearErrorMessageOnchange = fields => {
-  fields.forEach(field => {
-    field.addEventListener('change', () => {
-      const errorText = document.querySelector('.has-text-danger')
-
-      if (field.parentNode.contains(errorText)) {
-        field.classList.remove('is-danger')
-        errorText.remove()
-      }
-
-    })
-  })
-}
-
 const validateProfilePic = () => {
   const profilePicture = document.querySelector('input[name="profilePicture"]')
 
@@ -129,6 +115,15 @@ const checkEmptyFields = fields => {
     if (errorText) {
       errorText.remove()
     }
+
+    // remove error text onchange
+    field.addEventListener('change', () => {
+      const errorText = document.querySelector('.has-text-danger')
+      if (field.parentNode.contains(errorText)) {
+        field.classList.remove('is-danger')
+        errorText.remove()
+      }
+    })
 
     // create error text
     const warning = document.createElement('p')
@@ -176,9 +171,6 @@ const getFormData = () => {
   const inputs = document.querySelectorAll(
     'input[type="text"],input[type="email"],input[type="tel"],textarea'
   )
-
-  //clear error text on input change
-  clearErrorMessageOnchange(inputs)
 
   const submitButton = document.querySelector('.submit-button')
 
