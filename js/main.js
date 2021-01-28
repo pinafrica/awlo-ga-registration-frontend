@@ -47,12 +47,16 @@ let imageBlob
 
 const profileImageUpload = () => {
   const uploadButton = document.getElementById('camera-icon')
+  const modalCloseBtn = document.querySelector('.delete')
   uploadButton.addEventListener('click', e => {
     uploadFile.click()
   })
 
   uploadFile.addEventListener('change', e => {
     readImageFile(e.target.files)
+  })
+  modalCloseBtn.addEventListener('click', () => {
+    imageModal.classList.remove('is-active')
   })
 }
 
